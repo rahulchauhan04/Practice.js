@@ -137,8 +137,172 @@ for (let i = 1; i<= 10; i++){
  
  
  
- // Exercise: Count Vowels in a String
+ // Exercise 1: Count Vowels in a String
  
- function countVowels(){
- 
+ function countVowels(string){
+     let array = ['a','e','i','o','u'];
+     let counter  = 0;
+
+     for(let i = 0; i < string.length; i++){
+          if(array.includes(string[i])){
+               counter ++;
+          }
+     }
+     return counter;
  }
+
+ console.log(countVowels("Hello, World!"));
+
+
+
+// Exercise 2: Find the Sum of All Elements in an Array
+
+function sumArray(array){
+     let sum = 0;
+     for(let i = 0; i < array.length; i++){
+          sum += array[i];
+     }
+     return sum;
+}
+
+console.log(sumArray([1, 2, 3, 4, 5]));
+
+
+
+// Exercise 3: Find the Smallest Number in an Array
+
+function findMin(array){
+     let min  = array[0];
+
+     for (let i = 0; i < array.length; i++){
+          if(array[i] < min)
+               min = array[i];
+     }
+     return min;
+}
+
+console.log(findMin([8, 2, 3, 5, 1, 9],));
+
+
+
+// Exercise 4: Check if a String is a Palindrome
+
+function isPalindrome(string){
+let cleanedString  = string.replace(/[^a-z0-9]/gi, '').toLowerCase();
+ let reversedString =  cleanedString.split('').reverse().join('')
+
+ return cleanedString === reversedString; 
+}
+
+console.log(isPalindrome("Racecar"));
+
+
+
+// Exercise 5: Find the Maximum Value in a Nested Array
+
+function findMaxInNestedArray(nestedArray){
+     let max = 0;
+     for (let i = 0; i < nestedArray.length; i++){
+          for (let j = 0; j < nestedArray[i].length; j++){
+               if (nestedArray[i][j] > max) {
+                    max = nestedArray[i][j]
+               }
+          }
+     }
+     return max;
+}
+
+console.log(findMaxInNestedArray([[1, 2, 3], [4, 5], [6, 7, 8, 9]]));
+
+
+
+// Exercise 6: Find the Sum of Digits in a Number
+
+function sumDigits(number){
+     let numberString = number.toString();
+     let sum = 0;
+
+     for (let i = 0; i < numberString.length; i++){
+          let digit = parseInt(numberString[i]);
+          sum += digit;
+     }
+     return sum;
+}
+
+console.log(sumDigits(123456))
+
+
+
+// Exercise 7: Count the Occurrences of Each Character in a String
+
+function countCharacters(string){
+     let charcCount = {};
+
+     for (let i=0; i <=string.length-1; i++) {
+          if (string[i] === ' ') {
+               continue;
+          }
+          if (string[i] in charcCount ) {
+               charcCount[string[i]]++
+          } else {
+               charcCount[string[i]] = 1
+          }
+     }
+     return charcCount;
+}
+
+console.log(countCharacters("hello world"));
+
+
+
+// Exercise 8: Check if an Array is Sorted in Ascending Order
+
+function isSortedAscending(array){
+
+     for (let i = 0; i < array.length-1; i++){
+          if (array[i] > array[i+1]){
+               return false 
+          } 
+     }
+     return true;
+}
+
+console.log(isSortedAscending([1, 2, 3, 4, 5]));
+console.log(isSortedAscending([3, 1, 4, 2, 5]));
+
+
+
+// Exercise 9: Find the Index of the First Occurrence of a Substring
+
+function findSubstring(mainString,subString){
+     for(let i = 0; i <= mainString.length-subString.length; i++){
+          if (mainString.substr(i,subString.length) === subString){
+               return i;
+          }
+     }
+     return -1;
+}
+
+console.log(findSubstring("hello world", "world"));
+console.log(findSubstring("hello world", "earth"));
+
+
+
+// Exercise 10: Count the Occurrences of Each Word in a String
+
+function countWords(string){
+     let wordArray = string.split(' ');
+     let wordCount = { };
+
+     for (let i = 0; i < wordArray.length; i++){
+          let currentword = wordArray[i]
+          if (currentword in wordCount){
+               wordCount[currentword]++
+          } else {
+               wordCount[currentword] = 1;
+          }
+     }
+     return wordCount;
+}
+
+console.log(countWords("hello world hello hello rahul why obsessed continue with vision with with"));
